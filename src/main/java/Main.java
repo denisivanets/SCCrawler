@@ -21,10 +21,6 @@ public class Main {
                 .forEach(this::processClass);
     }
 
-    private boolean notJustObject(ClassPath.ClassInfo clazz) {
-        return !clazz.getName().endsWith("Object");
-    }
-
     private void processClass(final ClassPath.ClassInfo clazz) {
         String parent = clazz.load().getGenericSuperclass().getTypeName();
         if (!counter.containsKey(parent)) {
