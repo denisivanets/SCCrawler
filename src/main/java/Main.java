@@ -34,8 +34,14 @@ public class Main {
 
     private void printResult() {
         for (Map.Entry<String, List<String>> entry : counter.entrySet()) {
-            System.out.println(entry.getKey() + ": " + printChild(entry.getValue()));
+            if (!isRightObject(entry.getKey())) {
+                System.out.println(entry.getKey() + ": " + printChild(entry.getValue()));
+            }
         }
+    }
+
+    private boolean isRightObject(final String clazz) {
+        return clazz.endsWith("Object");
     }
 
     private String printChild(final List<String> classes) {
